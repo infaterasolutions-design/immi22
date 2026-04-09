@@ -45,28 +45,28 @@ const NAV_ITEMS = [
   },
   {
     label: 'Fee Calculator',
-    href: '#',
+    href: '/',
     dropdown: [
-      { label: 'Tool Page', href: '#' },
-      { label: 'Fee Breakdown', href: '#' },
+      { label: 'Tool Page', href: '/' },
+      { label: 'Fee Breakdown', href: '/' },
     ],
   },
   {
     label: 'Tools',
-    href: '#',
+    href: '/',
     dropdown: [
-      { label: 'Visa Status Checker', href: '#' },
-      { label: 'USCIS Case Tracker', href: '#' },
-      { label: 'H1B Lottery Tracker', href: '#' },
+      { label: 'Visa Status Checker', href: '/' },
+      { label: 'USCIS Case Tracker', href: '/' },
+      { label: 'H1B Lottery Tracker', href: '/' },
     ],
   },
   {
     label: 'About',
-    href: '#',
+    href: '/',
     dropdown: [
-      { label: 'Mission Statement', href: '#' },
-      { label: 'Disclaimer', href: '#' },
-      { label: 'Contact Info', href: '#' },
+      { label: 'Mission Statement', href: '/' },
+      { label: 'Disclaimer', href: '/' },
+      { label: 'Contact Info', href: '/' },
     ],
   },
 ];

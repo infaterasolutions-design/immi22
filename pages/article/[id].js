@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-const { NewsData } = require('../../lib/data');
+import { NewsData } from '../../lib/data';
 
 export default function ArticlePage({ article, relatedArticles }) {
   if (!article) {

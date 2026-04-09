@@ -1,0 +1,522 @@
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import Header from '../components/Header';
+import { NewsData } from '../lib/data';
+
+export default function Home({ topStories, latestUpdates }) {
+  const [displayedCount, setDisplayedCount] = useState(6);
+
+  const handleLoadMore = () => {
+    setDisplayedCount(prev => Math.min(prev + 6, latestUpdates.length));
+  };
+
+  return (
+    <div className="bg-[#f8f9fa] min-h-screen font-body text-slate-900">
+      <Head>
+        <title>The Digital Diplomat | USA Immigration News</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+      <Header />
+
+      <main className="mt-4 px-4 md:px-0">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="w-full">
+            <div id="home-view" className="space-y-8">
+{/*  Breaking News / Live Updates Banner  */}
+<Link href="/live/h1b-visa-reform-2025" className="flex items-center gap-4 bg-white p-2 border border-slate-100 shadow-sm hover:shadow-md transition-shadow group">
+<span className="bg-red-600 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"><span className="w-1.5 h-1.5 bg-white live-dot inline-block"></span>Live</span>
+<p className="text-sm font-medium truncate group-hover:text-primary transition-colors">H-1B Visa Reform Act 2025: Live Congressional Updates — Follow the latest developments</p>
+<span className="material-symbols-outlined text-primary ml-auto mr-2">arrow_forward</span>
+</Link>
+{/*  Hero Section: 50/50 Balance  */}
+<section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-4">
+{/*  Left: Featured Story  */}
+<Link href="/article/1" className="group cursor-pointer block relative">
+<div className="relative aspect-[16/10] overflow-hidden mb-4">
+<img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATI85OtLzj_sQ0MJSzY7OKWNh756JbG2932o_Ri9ycQHBm4OUaRqbyh-FeoXP0XLK493eluw7EUp-4FIA4-9luW02by7tRs_mL_MR_Ws222g37OrmvEvjAYGl9unpTvv8orNCrC9rejkU4y7tGbBYbgwpbx9fjIe5PLKHuEmm0OMlCoPk09_tkiejWjtYv2DTF5AsYoI39e1G3_eTfY8wHtn03Bugod6gUkWAKFyunVqistTzLjMBr3-q_ODnv9-mLSblCOpny5Vs"/>
+</div>
+<div className="space-y-3">
+<span className="text-primary text-[10px] font-bold uppercase tracking-widest">H1B Visa</span>
+<h1 className="text-on-surface text-3xl font-extrabold headline-font leading-tight group-hover:text-primary transition-colors">
+                                Strategic Shifts: The Future of H-1B Visa Modernization and Global Talent Acquisition
+                            </h1>
+<p className="text-on-surface-variant text-base leading-relaxed line-clamp-3">
+                                The Department of Homeland Security proposes significant structural changes to the specialty occupation visa program to enhance integrity and flexibility for tech employers.
+                            </p>
+</div>
+</Link>
+{/*  Right: 2x2 Grid  */}
+<div className="grid grid-cols-2 gap-6">
+<Link href="/article/10" className="space-y-2 group cursor-pointer block relative">
+<div className="aspect-[4/3] overflow-hidden">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOUgkbn0ejx90kCo_WeuweNcC65_qQXwgeYf0l_IkxuatVrUe987ygmQ6qrFxfTEj1neDn7iQXX9JTzQaRhcH_f7xPo4kq5bIUNlRibi9DukYjZvnk0kP2w0gEc9ZZaqG0K-1lZwmGT1e5ZQ9XxahHOsJRXf9s83cryBJmDoeO1t7G6zt6Nsl6PPZ9Ephlcr4fWzHt6UtzjqAkf2eXYkBSawGCgUxNfjJEM-I8AdbfyveerG3Ivnl0OyJPP6z5RCBAlP1qjUHkMbo"/>
+</div>
+<span className="text-primary text-[10px] font-bold uppercase tracking-widest mt-1 block">B1/B2</span>
+<h3 className="font-bold headline-font text-sm leading-tight group-hover:text-primary transition-colors line-clamp-3">Digital Nomad Visa Options for 2024 vs B1/B2 Renewals: What Travelers Need to Know</h3>
+<p className="text-[10px] text-slate-400 font-medium">2 HOURS AGO</p>
+</Link>
+<Link href="/article/4" className="space-y-2 group cursor-pointer block relative">
+<div className="aspect-[4/3] overflow-hidden">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyR3TjqB6H5OPwDD5Vz__oLTQIgC0VBZ9C2ZYm0RyBpgwXOH7WTjXTgwXJqWkuf7gRFQsTLhbqloYl9yK55LeUDv8sKXz1ekJHun-CZk70aVh5t5VEAxPFqHGZhcNKKjySgnb-cr9Endyb8WZaM1-i-HhW2s5LrwsuMcpUNBBkzzfJUa5SI_56b3PrbUkM48CFUJsvPnOULDbOk-7MbOO2Pfvwp6Adwopm5-RRqt7piQ5YH79s2ShR6BJ8_KPM-Y-cw18-MzUinI"/>
+</div>
+<span className="text-primary text-[10px] font-bold uppercase tracking-widest mt-1 block">Green Card</span>
+<h3 className="font-bold headline-font text-sm leading-tight group-hover:text-primary transition-colors line-clamp-3">Supreme Court Rules on Asylum Protections for Green Card Applicants Facing Deportation</h3>
+<p className="text-[10px] text-slate-400 font-medium">5 HOURS AGO</p>
+</Link>
+<Link href="/article/2" className="space-y-2 group cursor-pointer block relative">
+<div className="aspect-[4/3] overflow-hidden">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoplYKZG0QKQQ9IQdfcHZhK3y9AwyMxcMCse8pg22L8N4EOb0u0_21wvZOODKiTWUVzzDhXQCmC43rxzxi0rVKUTgaZng0AS2OgM_o1LTi_RI9W3oyxRlnfT5_2BD4g2Nu8BUymyUE3WPC_GgPuhCxWVjk-tcRHE1DVQzXQ5Q534fbhwgIMqeyshtNl3L6idfwwlp1HYcfNxPD5NMSe1mI4hoJdTytWjFQ_w3wZVPRW9FQtf6KsesizAgwvuEUJQ2KEHNYc-BzLDA"/>
+</div>
+<span className="text-primary text-[10px] font-bold uppercase tracking-widest mt-1 block">H1B Visa</span>
+<h3 className="font-bold headline-font text-sm leading-tight group-hover:text-primary transition-colors line-clamp-3">Tech Hubs Push for EB-1 Expansion as Demand Surges Among AI and Semiconductor Talent</h3>
+<p className="text-[10px] text-slate-400 font-medium">8 HOURS AGO</p>
+</Link>
+<Link href="/" className="space-y-2 group cursor-pointer block relative">
+<div className="aspect-[4/3] overflow-hidden">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdy4uD-BQ03LhtM8lZrABIkK0qOX4d2sGQJkbi3giDIUF3KG86OFIwheFA9pZSh0OgSzW4yVfpZ2UgQ1im5w7KDIy0sTg01HBEFW6gFmw2h4vGlWaacqGnI4JQRxu3EjG9dqreIp2AJ6qUXM-SPetQ75U0J0VRH0I3jxVuvyHzlZdV_sNcqeAd22jJfCF03ZnRQlkp4dnfRpL3s9igCZOrC5pJcVXMgfue_QyH0itIy8ojMUiWizLukhQDcurQgTsz9NiSSBcFMXQ"/>
+</div>
+<span className="text-primary text-[10px] font-bold uppercase tracking-widest mt-1 block">F1 &amp; OPT/CPT</span>
+<h3 className="font-bold headline-font text-sm leading-tight group-hover:text-primary transition-colors line-clamp-3">New Federal Grant Programs for Immigrant Founders Launching Startups on OPT and H-1B Visas</h3>
+<p className="text-[10px] text-slate-400 font-medium">12 HOURS AGO</p>
+</Link>
+</div>
+</section>
+{/*  Horizontal Ad Banner (Below Hero)  */}
+
+{/*  Top Stories: Refined Card Style + Horizontal Slider  */}
+<section className="py-4 border-y border-slate-100">
+<div className="flex items-center justify-between mb-6">
+<h2 className="text-xl font-extrabold headline-font border-l-4 border-primary pl-4 uppercase tracking-tight">Top Stories</h2>
+<div className="flex items-center gap-2">
+<button id="top-stories-prev" className="p-1.5 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-200"><span className="material-symbols-outlined text-sm">chevron_left</span></button>
+<button id="top-stories-next" className="p-1.5 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-200"><span className="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div id="top-stories-scroll" className="flex gap-6 overflow-x-auto pb-4 hide-scrollbar snap-x">
+{/*  Card 1  */}
+<div className="flex-shrink-0 w-[280px] snap-start group cursor-pointer relative">
+<Link href="/article/4" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+<div className="relative aspect-[16/10] w-full overflow-hidden mb-3">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATI85OtLzj_sQ0MJSzY7OKWNh756JbG2932o_Ri9ycQHBm4OUaRqbyh-FeoXP0XLK493eluw7EUp-4FIA4-9luW02by7tRs_mL_MR_Ws222g37OrmvEvjAYGl9unpTvv8orNCrC9rejkU4y7tGbBYbgwpbx9fjIe5PLKHuEmm0OMlCoPk09_tkiejWjtYv2DTF5AsYoI39e1G3_eTfY8wHtn03Bugod6gUkWAKFyunVqistTzLjMBr3-q_ODnv9-mLSblCOpny5Vs"/>
+<div className="absolute top-2 left-2 bg-primary px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-tighter">GREEN CARD</div>
+</div>
+<h4 className="font-bold text-sm leading-snug group-hover:text-primary transition-colors mb-2 line-clamp-3">Supreme Court Hearing on Dreamers Act Set for June</h4>
+<div className="flex items-center gap-3 text-[10px] text-slate-500 font-medium">
+<div className="flex items-center gap-1"><span className="material-symbols-outlined text-[12px]">visibility</span><span>12k</span></div>
+<span>•</span><span>4h ago</span>
+</div>
+</div>
+{/*  Card 2  */}
+<div className="flex-shrink-0 w-[280px] snap-start group cursor-pointer relative">
+<Link href="/article/7" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+<div className="relative aspect-[16/10] w-full overflow-hidden mb-3">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKs0Kp0aBoh8ydCgZzM4KwfpiM3qCjegaJqFzBP4vQpITa4xP7FwBjBwaqMJDszQRyfMTxdDdwG-tqc5bIUdPEcmoyWQJPQbDzFdsOsTjwwDmIyY1dbuV0JdPVuVAKedrbRT7z1wJOV23Jrfe5Luy8lRk2kGiZ-yfqPXbVoZKqrxszIB5FsxT_szvcPdBzR07-lGT75o2eW8PqXKHF2j4v448g5e_28trTBeZO2L97lDX2Nfc3LmkLW2_gVBrnBwhtO4h-JtINVFg"/>
+<div className="absolute top-2 left-2 bg-primary px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-tighter">USCIS UPDATES</div>
+</div>
+<h4 className="font-bold text-sm leading-snug group-hover:text-primary transition-colors mb-2 line-clamp-3">Labor Shortages Drive New L-1 Visa Expediting</h4>
+<div className="flex items-center gap-3 text-[10px] text-slate-500 font-medium">
+<div className="flex items-center gap-1"><span className="material-symbols-outlined text-[12px]">visibility</span><span>8.5k</span></div>
+<span>•</span><span>6h ago</span>
+</div>
+</div>
+{/*  Card 3  */}
+<div className="flex-shrink-0 w-[280px] snap-start group cursor-pointer relative">
+<Link href="/article/6" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+<div className="relative aspect-[16/10] w-full overflow-hidden mb-3">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyR3TjqB6H5OPwDD5Vz__oLTQIgC0VBZ9C2ZYm0RyBpgwXOH7WTjXTgwXJqWkuf7gRFQsTLhbqloYl9yK55LeUDv8sKXz1ekJHun-CZk70aVh5t5VEAxPFqHGZhcNKKjySgnb-cr9Endyb8WZaM1-i-HhW2s5LrwsuMcpUNBBkzzfJUa5SI_56b3PrbUkM48CFUJsvPnOULDbOk-7MbOO2Pfvwp6Adwopm5-RRqt7piQ5YH79s2ShR6BJ8_KPM-Y-cw18-MzUinI"/>
+<div className="absolute top-2 left-2 bg-primary px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-tighter">HOW-TO</div>
+</div>
+<h4 className="font-bold text-sm leading-snug group-hover:text-primary transition-colors mb-2 line-clamp-3">10 Common Mistakes in Citizenship Applications</h4>
+<div className="flex items-center gap-3 text-[10px] text-slate-500 font-medium">
+<div className="flex items-center gap-1"><span className="material-symbols-outlined text-[12px]">visibility</span><span>25k</span></div>
+<span>•</span><span>1d ago</span>
+</div>
+</div>
+{/*  Card 4  */}
+<div className="flex-shrink-0 w-[280px] snap-start group cursor-pointer relative">
+<Link href="/article/10" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+<div className="relative aspect-[16/10] w-full overflow-hidden mb-3">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOUgkbn0ejx90kCo_WeuweNcC65_qQXwgeYf0l_IkxuatVrUe987ygmQ6qrFxfTEj1neDn7iQXX9JTzQaRhcH_f7xPo4kq5bIUNlRibi9DukYjZvnk0kP2w0gEc9ZZaqG0K-1lZwmGT1e5ZQ9XxahHOsJRXf9s83cryBJmDoeO1t7G6zt6Nsl6PPZ9Ephlcr4fWzHt6UtzjqAkf2eXYkBSawGCgUxNfjJEM-I8AdbfyveerG3Ivnl0OyJPP6z5RCBAlP1qjUHkMbo"/>
+<div className="absolute top-2 left-2 bg-primary px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-tighter">B1/B2</div>
+</div>
+<h4 className="font-bold text-sm leading-snug group-hover:text-primary transition-colors mb-2 line-clamp-3">ESTA Updates: New Protocols for Travelers</h4>
+<div className="flex items-center gap-3 text-[10px] text-slate-500 font-medium">
+<div className="flex items-center gap-1"><span className="material-symbols-outlined text-[12px]">visibility</span><span>5.2k</span></div>
+<span>•</span><span>2h ago</span>
+</div>
+</div>
+</div>
+</section>
+{/*  Browse by Category: Soft-colored Grid  */}
+<section className="py-4">
+<h2 className="text-xl font-extrabold headline-font border-l-4 border-primary pl-4 uppercase tracking-tight mb-6">Browse by Category</h2>
+<div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div className="bg-blue-50/50 hover:bg-blue-100 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-blue-100/50">
+<Link href="/category/visa-news/f1-opt-cpt" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-blue-600 text-3xl mb-3">school</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">F1 Student</span>
+</div>
+<div className="bg-indigo-50/50 hover:bg-indigo-100 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-indigo-100/50">
+<Link href="/category/visa-news/h1b-visa" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-indigo-600 text-3xl mb-3">work</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">H1B Work</span>
+</div>
+<div className="bg-emerald-50/50 hover:bg-emerald-100 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-emerald-100/50">
+<Link href="/category/visa-news/green-card" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-emerald-600 text-3xl mb-3">style</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">Green Card</span>
+</div>
+<div className="bg-rose-50/50 hover:bg-rose-100 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-rose-100/50">
+<Link href="/category/visa-news" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-rose-600 text-3xl mb-3">family_restroom</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">Family Base</span>
+</div>
+<div className="bg-amber-50/50 hover:bg-amber-100 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-amber-100/50">
+<Link href="/category/visa-news" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-amber-600 text-3xl mb-3">gavel</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">Asylum</span>
+</div>
+<div className="bg-slate-100/50 hover:bg-slate-200 transition-colors p-6 flex flex-col items-center justify-center text-center group cursor-pointer relative border border-slate-200/50">
+<Link href="/category/visa-news/b1-b2" className="absolute inset-0 z-10"><span className="sr-only">View Category</span></Link>
+<span className="material-symbols-outlined text-slate-600 text-3xl mb-3">flight</span>
+<span className="font-bold headline-font text-[11px] uppercase tracking-widest">B1/B2 Visitor</span>
+</div>
+</div>
+</section>
+{/*  Video Highlights: Rounded Cards (12px)  */}
+<section className="py-4">
+<div className="flex items-center justify-between mb-6">
+<h2 className="text-xl font-extrabold headline-font border-l-4 border-primary pl-4 uppercase tracking-tight">Video Highlights</h2>
+<div className="flex gap-2">
+<button id="video-highlights-prev" className="p-1.5 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-200"><span className="material-symbols-outlined text-sm">chevron_left</span></button>
+<button id="video-highlights-next" className="p-1.5 bg-slate-100 hover:bg-slate-200 transition-colors border border-slate-200"><span className="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div id="video-highlights-scroll" className="flex gap-4 overflow-x-auto pb-4 hide-scrollbar snap-x">
+{/*  Video Card 1  */}
+<div className="flex-shrink-0 w-44 snap-start group cursor-pointer relative">
+<Link href="/" className="absolute inset-0 z-10"><span className="sr-only">Play Video</span></Link>
+<div className="relative aspect-[9/16] video-card-rounded overflow-hidden mb-2">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA20aaU7PB6QJLhRvTKC94_p1IeFNZT_gHgmQzeJLvAmbDpOSprkXRe0xwoXbkm90ZFoo2-4AT2KgahGHrl3SSHhPXtOO4xh3s6WLou7qI-gnNYZXDfxVzQLyzPzvDdm8kKmkyqVw1i3IoqI8fcrshmnM4rAT4U7Ppu-ARjodYID7qKFoZkKCGPhqJCNgRoCShfGcKCFd-orQJkJrNog2yQM9f3ip7ydbVvYj_lUXm3zH6OSDIXlPRs_YZKY84geAdsdA9rwRt2QPg"/>
+<div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span className="material-symbols-outlined text-white text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+</div>
+<div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 text-[10px] text-white font-bold">1:24</div>
+</div>
+<h4 className="text-xs font-bold headline-font line-clamp-2 text-center group-hover:text-primary transition-colors">Understanding 2024 Citizenship Path</h4>
+</div>
+{/*  Video Card 2  */}
+<div className="flex-shrink-0 w-44 snap-start group cursor-pointer relative">
+<Link href="/" className="absolute inset-0 z-10"><span className="sr-only">Play Video</span></Link>
+<div className="relative aspect-[9/16] video-card-rounded overflow-hidden mb-2">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFb9beblN3MgHfnUBeU6Wy9p8_YXGuxcbQN9FF3do1_QrnImWCzKvHOym8HGB3VsYqY-QVokckgGybI0aXA5r4mnWVrY1PUU3XtbCErgaZoZlad1475HO49wX09A-HVgWnn-kAIZxc4efxzvSm-Pe9UuHWFraRl70xF-6bJMYeY2T9LxsW1Kuymmq-EXTV5W2Ok4kAKG4xYivcwpo3fpDGyWKHAHoKU9r6x3MJZZjuz6BWfp1iqxgkD5Wh6V04ZFuW6w8hr-Xc-WA"/>
+<div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span className="material-symbols-outlined text-white text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+</div>
+<div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 text-[10px] text-white font-bold">0:58</div>
+</div>
+<h4 className="text-xs font-bold headline-font line-clamp-2 text-center group-hover:text-primary transition-colors">AI Impact on Visa Interviews</h4>
+</div>
+{/*  Video Card 3  */}
+<div className="flex-shrink-0 w-44 snap-start group cursor-pointer relative">
+<Link href="/" className="absolute inset-0 z-10"><span className="sr-only">Play Video</span></Link>
+<div className="relative aspect-[9/16] video-card-rounded overflow-hidden mb-2">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTa0bzeNHFntR5rgtSPYmlr5Pn6ZtKhGEsyWYCV6i6o-LTZdwPjqQAoZpjXXHUTmz75SSlioY0L74AGZ8gDK9vlNvlR-NEw8x1l2_b_BArN9MHSlCFIQ8L_7DRjylAJQr2YfQUdmgT0ABVRQXHE4TmfQEGHaEYWk1FC_w52iebQTZbMjpU3PqGBpAKd8OWtcwFtsQfae4itt6CKxQgQ9TYQJRhflL6l_dLYxzi1uGxN8Y0-K6efFFn3Z0Xq-Wk0X6jNCFajow_600"/>
+<div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span className="material-symbols-outlined text-white text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+</div>
+<div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 text-[10px] text-white font-bold">2:15</div>
+</div>
+<h4 className="text-xs font-bold headline-font line-clamp-2 text-center group-hover:text-primary transition-colors">New F-1 Work Authorization</h4>
+</div>
+{/*  Video Card 4  */}
+<div className="flex-shrink-0 w-44 snap-start group cursor-pointer relative">
+<Link href="/" className="absolute inset-0 z-10"><span className="sr-only">Play Video</span></Link>
+<div className="relative aspect-[9/16] video-card-rounded overflow-hidden mb-2">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOUgkbn0ejx90kCo_WeuweNcC65_qQXwgeYf0l_IkxuatVrUe987ygmQ6qrFxfTEj1neDn7iQXX9JTzQaRhcH_f7xPo4kq5bIUNlRibi9DukYjZvnk0kP2w0gEc9ZZaqG0K-1lZwmGT1e5ZQ9XxahHOsJRXf9s83cryBJmDoeO1t7G6zt6Nsl6PPZ9Ephlcr4fWzHt6UtzjqAkf2eXYkBSawGCgUxNfjJEM-I8AdbfyveerG3Ivnl0OyJPP6z5RCBAlP1qjUHkMbo"/>
+<div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span className="material-symbols-outlined text-white text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+</div>
+<div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 text-[10px] text-white font-bold">1:05</div>
+</div>
+<h4 className="text-xs font-bold headline-font line-clamp-2 text-center group-hover:text-primary transition-colors">Step-by-Step Renewals</h4>
+</div>
+{/*  Video Card 5  */}
+<div className="flex-shrink-0 w-44 snap-start group cursor-pointer relative">
+<Link href="/" className="absolute inset-0 z-10"><span className="sr-only">Play Video</span></Link>
+<div className="relative aspect-[9/16] video-card-rounded overflow-hidden mb-2">
+<img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIR_qsdCPdaytnz1Fn2FLGjXiUYafBq5t8jLnSnkHfMljIbEC4Ayg18IzHidKAx8rPjnLldTs0NQkHypXNY1LwPEh149oi7MfBRtFS-WtvW6bowA7lNClgVNBi7cjN6QC2_8T1k2xd9-r1HXMpAfj2Tq6FmaAprB8RXmZEMyFb_n2UL7knjkb-cqu96KWLahR2sS665efpstTHC0K-x0WNgBlWJxRMHKUNkull7eERkElatQS3Zm01JmR0EGAHG3sjmX2pSY9uWEY"/>
+<div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+<span className="material-symbols-outlined text-white text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
+</div>
+<div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-sm px-1.5 py-0.5 text-[10px] text-white font-bold">0:45</div>
+</div>
+<h4 className="text-xs font-bold headline-font line-clamp-2 text-center group-hover:text-primary transition-colors">AI Founders and O-1 Visas</h4>
+</div>
+</div>
+</section>
+{/*  Horizontal Ad Banner (Between Sections)  */}
+
+{/*  Latest Updates Section  */}
+<section className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-4 border-t border-slate-100">
+<div className="lg:col-span-2 space-y-6">
+<h2 className="text-xl font-extrabold headline-font border-l-4 border-primary pl-4 uppercase tracking-tight">Latest Updates</h2>
+{/*  Feed Item 1  */}
+<article className="group pb-6 border-b border-slate-100 flex gap-6 cursor-pointer relative">
+<Link href="/article/1" className="absolute inset-0 z-10"><span className="sr-only">Read Article</span></Link>
+<div className="flex-grow">
+<div className="flex items-center gap-2 mb-2">
+<span className="text-[10px] font-bold text-primary uppercase tracking-widest">H1B Visa</span>
+<span className="w-1 h-1 bg-slate-300"></span>
+<span className="text-[10px] text-slate-400 font-medium uppercase">2 HOURS AGO</span>
+</div>
+<h3 className="text-lg font-bold headline-font group-hover:text-primary transition-colors mb-2">House Committee Passes New Employment Verification Bill</h3>
+<p className="text-sm text-slate-600 leading-relaxed line-clamp-2">The legislation aims to mandate E-Verify for all agricultural employers by the end of the fiscal year.</p>
+</div>
+<div className="w-32 h-20 overflow-hidden flex-shrink-0">
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ZoBZ1yL9qO2FirlFxN5SWJI9GjoCuiRJRG2mrB6tL4dRvn2ToeTjM83RDnhyI3XiKnbKXbw8C3bklN42LpkxD3Gd-yZg-AjW41k-rshwEjmN8vSqiXMdNM5hFYJdP5XEQpXiWgb2iKttuplx2Qh_hsnT2s3YlkF9Me-HuM1vNi6y6Eb1f8eZQpSf4HJifM2M7IlwjkvVpfrfSSMmKjR9ybToNFdEN1ro4uAfl7UpDV5OPPAuW2P-7V0vkb9gm6W7olroJyg9zCY"/>
+</div>
+</article>
+{/*  Feed Item 2  */}
+<article className="group pb-6 border-b border-slate-100 flex gap-6 cursor-pointer relative">
+<Link href="/article/8" className="absolute inset-0 z-10"><span className="sr-only">Read Article</span></Link>
+<div className="flex-grow">
+<div className="flex items-center gap-2 mb-2">
+<span className="text-[10px] font-bold text-primary uppercase tracking-widest">F1 &amp; OPT/CPT</span>
+<span className="w-1 h-1 bg-slate-300"></span>
+<span className="text-[10px] text-slate-400 font-medium uppercase">5 HOURS AGO</span>
+</div>
+<h3 className="text-lg font-bold headline-font group-hover:text-primary transition-colors mb-2">Immigration Clinics Provide Free Legal Aid</h3>
+<p className="text-sm text-slate-600 leading-relaxed line-clamp-2">Mobile legal units are assisting thousands with TPS renewals across the Midwest.</p>
+</div>
+<div className="w-32 h-20 overflow-hidden flex-shrink-0">
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmUDpKYWdBeoaoHAOV4xaoNEm5Te_qhpRGR-VFmeV_rxgxzyh5Eop2IUHiz3S_JpzP4Qm_jOguAWGkzBygxhAnJLQC5O85w_c1Q0gD6iC514QeIfu6VWzKm5UIeMliBBlaSkF7htBVVnN2LWmlxQ2UNVbXbCluyflsUD4HZ_pny-OPZkP285PNnHeCbgkY1L4QVhJNI7GIzwkzb8YiJImheOD672zwH6POz3RqvIMcUHbronKS9UdbEFZx9HBJyUWQGegn4eEOcBQ"/>
+</div>
+</article><article className="group pb-6 border-b border-slate-100 flex gap-6 cursor-pointer relative">
+<Link href="/article/11" className="absolute inset-0 z-10"><span className="sr-only">Read Article</span></Link>
+<div className="flex-grow">
+<div className="flex items-center gap-2 mb-2">
+<span className="text-[10px] font-bold text-primary uppercase tracking-widest">B1/B2</span>
+<span className="w-1 h-1 bg-slate-300"></span>
+<span className="text-[10px] text-slate-400 font-medium uppercase">8 HOURS AGO</span>
+</div>
+<h3 className="text-lg font-bold headline-font group-hover:text-primary transition-colors mb-2">Consulate Appointment Wait Times Drop in Major Hubs</h3>
+<p className="text-sm text-slate-600 leading-relaxed line-clamp-2">New data shows a significant decrease in wait times for B1/B2 visa interviews across several Southeast Asian consulates.</p>
+</div>
+<div className="w-32 h-20 overflow-hidden flex-shrink-0">
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATI85OtLzj_sQ0MJSzY7OKWNh756JbG2932o_Ri9ycQHBm4OUaRqbyh-FeoXP0XLK493eluw7EUp-4FIA4-9luW02by7tRs_mL_MR_Ws222g37OrmvEvjAYGl9unpTvv8orNCrC9rejkU4y7tGbBYbgwpbx9fjIe5PLKHuEmm0OMlCoPk09_tkiejWjtYv2DTF5AsYoI39e1G3_eTfY8wHtn03Bugod6gUkWAKFyunVqistTzLjMBr3-q_ODnv9-mLSblCOpny5Vs"/>
+</div>
+</article><article className="group pb-6 border-b border-slate-100 flex gap-6 cursor-pointer relative">
+<Link href="/article/2" className="absolute inset-0 z-10"><span className="sr-only">Read Article</span></Link>
+<div className="flex-grow">
+<div className="flex items-center gap-2 mb-2">
+<span className="text-[10px] font-bold text-primary uppercase tracking-widest">H1B Visa</span>
+<span className="w-1 h-1 bg-slate-300"></span>
+<span className="text-[10px] text-slate-400 font-medium uppercase">1 DAY AGO</span>
+</div>
+<h3 className="text-lg font-bold headline-font group-hover:text-primary transition-colors mb-2">Canada Launches New Tech Talent Strategy to Attract H-1B Holders</h3>
+<p className="text-sm text-slate-600 leading-relaxed line-clamp-2">The northern neighbor introduces a streamlined work permit process specifically targeting US-based specialty occupation workers.</p>
+</div>
+<div className="w-32 h-20 overflow-hidden flex-shrink-0">
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoplYKZG0QKQQ9IQdfcHZhK3y9AwyMxcMCse8pg22L8N4EOb0u0_21wvZOODKiTWUVzzDhXQCmC43rxzxi0rVKUTgaZng0AS2OgM_o1LTi_RI9W3oyxRlnfT5_2BD4g2Nu8BUymyUE3WPC_GgPuhCxWVjk-tcRHE1DVQzXQ5Q534fbhwgIMqeyshtNl3L6idfwwlp1HYcfNxPD5NMSe1mI4hoJdTytWjFQ_w3wZVPRW9FQtf6KsesizAgwvuEUJQ2KEHNYc-BzLDA"/>
+</div>
+</article>
+<div id="home-more-stories" className="space-y-6">
+  {/*  Dynamically loaded stories appear here  */}
+</div>
+<button id="home-load-more" className="w-full py-3 bg-slate-100 font-bold text-[11px] tracking-widest text-primary hover:bg-slate-200 transition-colors uppercase">Load More Stories</button>
+</div>
+{/*  Sidebar  */}
+<aside className="space-y-12">
+<div className="relative space-y-12">
+      {/*  Latest News Sidebar  */}
+      <div className="bg-slate-50 border border-slate-200 p-6 mb-8">
+        <h3 className="font-bold text-sm tracking-widest uppercase text-primary mb-6 font-['Plus_Jakarta_Sans']">Latest News</h3>
+        <div className="space-y-6">
+          <Link className="group block" href="/article/4">
+            <div className="text-[10px] font-bold text-blue-700 mb-1">BREAKING</div>
+            <h4 className="text-sm font-bold text-slate-900 leading-tight group-hover:text-primary transition-colors">Supreme Court to review DACA Work Authorization limits in 2025.</h4>
+          </Link>
+          <Link className="group block" href="/article/7">
+            <div className="text-[10px] font-bold text-slate-500 mb-1">2 HOURS AGO</div>
+            <h4 className="text-sm font-bold text-slate-900 leading-tight group-hover:text-primary transition-colors">USCIS expands premium processing for O-1 and O-2 visas.</h4>
+          </Link>
+          <Link className="group block" href="/article/5">
+            <div className="text-[10px] font-bold text-slate-500 mb-1">5 HOURS AGO</div>
+            <h4 className="text-sm font-bold text-slate-900 leading-tight group-hover:text-primary transition-colors">New processing times released for I-485 applications in California.</h4>
+          </Link>
+        </div>
+      </div>
+      
+      {/*  Most Viewed Sidebar  */}
+      <div className="mb-12">
+        <h3 className="font-bold text-sm tracking-widest uppercase text-slate-900 mb-6 font-['Plus_Jakarta_Sans']">Most Viewed</h3>
+        <div className="space-y-8">
+          <div className="flex gap-4 relative group cursor-pointer hover:bg-slate-50 transition-colors p-2 -mx-2">
+            <Link href="/article/6" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+            <span className="text-3xl font-black text-slate-200 italic font-['Plus_Jakarta_Sans']">01</span>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">The Ultimate Guide to Green Card Marriage Interviews</h4>
+              <span className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">Green Card • 12k views</span>
+            </div>
+          </div>
+          <div className="flex gap-4 relative group cursor-pointer hover:bg-slate-50 transition-colors p-2 -mx-2">
+            <Link href="/article/8" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+            <span className="text-3xl font-black text-slate-200 italic font-['Plus_Jakarta_Sans']">02</span>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">New Grant Programs for Immigrant Founders</h4>
+              <span className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">Work Permit • 9.4k views</span>
+            </div>
+          </div>
+          <div className="flex gap-4 relative group cursor-pointer hover:bg-slate-50 transition-colors p-2 -mx-2">
+            <Link href="/article/10" className="absolute inset-0 z-10"><span className="sr-only">Read More</span></Link>
+            <span className="text-3xl font-black text-slate-200 italic font-['Plus_Jakarta_Sans']">03</span>
+            <div>
+              <h4 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-primary transition-colors">Digital Nomad Visa Options for 2024</h4>
+              <span className="text-[10px] text-slate-500 font-medium uppercase tracking-tighter">Citizenship • 7.1k views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*  Newsletter Box  */}
+      <div className="bg-primary p-8 text-white relative overflow-hidden">
+        <div className="relative z-10">
+          <span className="material-symbols-outlined mb-4">mail</span>
+          <h3 className="font-extrabold text-xl mb-2 font-['Plus_Jakarta_Sans']">Editorial Digest</h3>
+          <p className="text-sm text-white/80 leading-relaxed mb-6">Stay updated with critical immigration law changes delivered to your inbox weekly.</p>
+          <div className="space-y-3">
+            <input className="w-full bg-white/10 border-white/20 px-4 py-3 text-sm placeholder:text-white/40 focus:outline-none" placeholder="Email address" type="email"/>
+            <button className="w-full bg-white text-primary font-bold py-3 px-4 text-[11px] uppercase tracking-widest hover:bg-slate-50 transition-colors">Subscribe Now</button>
+          </div>
+        </div>
+      </div>
+</div>
+</aside>
+</section>
+{/*  Trust Section: Trusted Authority  */}
+<section className="py-4 mb-12">
+<div className="grid grid-cols-1 md:grid-cols-2 bg-white border border-slate-200 shadow-sm overflow-hidden">
+<div className="h-80 md:h-auto overflow-hidden">
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASonc9WpqKi-3nfgA3ebTOLNbJlRDpAIqoh1a-_yXaeT0M1xhZzoRd3gpfmgAhIBUU3yyNJcllKd6DukftB1jGL_dxu9IajiEhZ6bGhOXApVsMYEmb9XParMiJKGskIw5ZGrbMDewjmgtuS_5eI0UueALMnEWoWUB8-ykXY2QkFyArsCW4Y6yQIyC4bUXu4luUUJBMMCc-ErJvabBvdaPi3HpyWSxoPoZamN_NUe5sACEAVODfePeXdmpUEnRNed06NcxtKzsfpEo"/>
+</div>
+<div className="p-10 flex flex-col justify-center">
+<div className="inline-flex items-center gap-2 bg-primary text-white px-3 py-1 self-start mb-6 text-[10px] font-bold uppercase tracking-widest">
+<span className="material-symbols-outlined text-sm">verified</span> Verified Accuracy
+                            </div>
+<h2 className="text-3xl font-extrabold headline-font mb-4 leading-tight">Your Trusted Authority on US Immigration</h2>
+<p className="text-slate-600 mb-8 leading-relaxed">For over a decade, we've provided millions of readers with fact-checked, up-to-the-minute analysis of shifting immigration policies and procedural changes.</p>
+<div className="flex items-center gap-8">
+<div>
+<p className="text-2xl font-extrabold text-primary headline-font">12M+</p>
+<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Annual Readers</p>
+</div>
+<div className="w-px h-10 bg-slate-200"></div>
+<div>
+<p className="text-2xl font-extrabold text-primary headline-font">24/7</p>
+<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Policy Tracking</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+            {/* Latest Updates injected dynamically */}
+            <section className="py-4">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-extrabold headline-font text-slate-900 border-l-4 border-primary pl-4 uppercase tracking-tight">Latest Updates</h2>
+              </div>
+              <div className="grid gap-8">
+                {latestUpdates.slice(0, displayedCount).map(article => (
+                  <article key={article.id} className="flex gap-6 group relative pb-6 border-b border-slate-100 last:border-0">
+                    <div className="w-32 h-24 md:w-56 md:h-36 shrink-0 relative overflow-hidden">
+                      <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div className="absolute top-2 left-2 bg-primary px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-tighter">{article.tag}</div>
+                    </div>
+                    <div className="flex flex-col justify-center flex-1 min-w-0">
+                      <h3 className="text-lg md:text-xl font-bold headline-font text-slate-900 group-hover:text-primary transition-colors leading-tight mb-2 line-clamp-2 md:line-clamp-none">
+                        <Link href={`/article/${article.id}`}>{article.title}</Link>
+                      </h3>
+                      <p className="text-sm text-slate-600 line-clamp-2 leading-relaxed hidden md:block">
+                        {article.description || article.summary || article.content.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...'}
+                      </p>
+                      <div className="flex items-center gap-3 text-[10px] text-slate-400 font-medium mt-auto md:mt-3 uppercase tracking-wider">
+                        <span>{article.time || '2 HOURS AGO'}</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="hidden sm:inline">{article.location || 'WASHINGTON'}</span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              {displayedCount < latestUpdates.length && (
+                <div className="mt-10 text-center">
+                  <button onClick={handleLoadMore} className="bg-slate-100 text-slate-700 hover:bg-slate-200 px-8 py-3 font-bold text-sm tracking-widest uppercase transition-colors inline-block w-full sm:w-auto">
+                    Load More Articles
+                  </button>
+                </div>
+              )}
+            </section>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer Area */}
+      <footer className="bg-slate-900 pt-16 pb-8 border-t border-slate-200 mt-20">
+        <div className="max-w-screen-2xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div className="col-span-1 md:col-span-1">
+              <img src="/Logo.png" alt="Logo" className="h-12 w-auto mb-6 brightness-0 invert" />
+              <p className="text-sm text-slate-400 leading-relaxed font-body font-medium">
+                Your trusted, professional resource for USA immigration news, visa updates, and policy analysis.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold headline-font text-white mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
+              <ul className="space-y-3">
+                <li><Link href="/category/visa-news" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Visa News</Link></li>
+                <li><Link href="/category/visa-guides" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Visa Guides</Link></li>
+                <li><Link href="/category/processing-times" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Processing Times</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold headline-font text-white mb-6 uppercase tracking-widest text-sm">Legal</h4>
+              <ul className="space-y-3">
+                <li><Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Privacy Policy</Link></li>
+                <li><Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Terms of Service</Link></li>
+                <li><Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Disclaimer</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold headline-font text-white mb-6 uppercase tracking-widest text-sm">Follow Us</h4>
+              <div className="flex gap-4">
+                <Link href="/" className="text-slate-400 hover:text-white transition-colors"><img src="/Twitter.jpg" alt="Twitter" className="w-8 h-8 rounded-full opacity-70 hover:opacity-100" /></Link>
+                <Link href="/" className="text-slate-400 hover:text-white transition-colors"><img src="/Linkdin.png" alt="LinkedIn" className="w-8 h-8 rounded-full opacity-70 hover:opacity-100" /></Link>
+                <Link href="/" className="text-slate-400 hover:text-white transition-colors"><img src="/Facebook.jpeg" alt="Facebook" className="w-8 h-8 rounded-full opacity-70 hover:opacity-100" /></Link>
+              </div>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-slate-800 text-center flex flex-col items-center justify-center">
+            <p className="text-sm text-slate-500 font-medium">© 2024 The Digital Diplomat. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export async function getStaticProps() {
+  const topStories = NewsData.slice(0, 4);
+  const latestUpdates = NewsData.filter(article => !topStories.find(st => st.id === article.id));
+
+  return {
+    props: {
+      topStories,
+      latestUpdates
+    },
+    revalidate: 60 * 15, // Revalidate every 15 minutes
+  };
+}

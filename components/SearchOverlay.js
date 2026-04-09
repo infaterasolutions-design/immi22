@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-const { NewsData, AdminConfig } = require('../lib/data');
+import { NewsData, AdminConfig } from '../lib/data';
 
 const STORAGE_KEY = 'dd_recent_searches';
 const MAX_RECENT = 5;
